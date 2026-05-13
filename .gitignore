@@ -1,0 +1,32 @@
+# 환경변수 (절대 커밋 금지)
+.env
+.env.local
+.env.production
+backend/.env
+frontend/.env
+
+# 의존성
+node_modules/
+*/node_modules/
+
+# 빌드 결과물
+dist/
+build/
+frontend/dist/
+frontend/build/
+
+# 로그
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# 임시 파일
+*.tmp
+*.swp
