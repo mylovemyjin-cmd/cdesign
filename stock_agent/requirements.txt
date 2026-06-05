@@ -1,0 +1,8 @@
+anthropic>=0.50.0
+streamlit>=1.35.0
+yfinance>=0.2.58
+pandas_ta>=0.3.14b0
+plotly>=5.20.0
+python-dotenv>=1.0.0
+pandas>=2.0.0
+numpy>=1.26.0
