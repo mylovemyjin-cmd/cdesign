@@ -1,0 +1,44 @@
+{
+  "name": "it-support-agent",
+  "version": "0.1.0",
+  "description": "사내 IT 시스템 사용을 돕는 데스크톱 어시스턴트 (트레이 아이콘 + 채팅창, 오프라인 검색 기반)",
+  "author": "Hanon Systems DT",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "icon": "node scripts/generate-icon.js",
+    "test": "node --test test/*.test.js",
+    "dist": "electron-builder --win",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.0"
+  },
+  "build": {
+    "appId": "com.hanonsystems.it-support-agent",
+    "productName": "IT 도우미",
+    "files": [
+      "src/**/*",
+      "resources/**/*",
+      "config.default.json"
+    ],
+    "extraResources": [
+      { "from": "resources", "to": "resources" }
+    ],
+    "win": {
+      "target": ["nsis"],
+      "icon": "resources/tray-icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

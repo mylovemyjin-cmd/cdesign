@@ -1,0 +1,170 @@
+{
+  "version": "2026.06.16-bundled",
+  "updatedAt": "2026-06-16",
+  "source": "bundled-default",
+  "synonyms": {
+    "비밀번호": ["비번", "패스워드", "password", "암호", "pw"],
+    "초기화": ["리셋", "reset", "재설정"],
+    "와이파이": ["wifi", "wi-fi", "무선", "무선인터넷", "wireless"],
+    "프린터": ["인쇄", "출력", "복합기", "printer", "프린트"],
+    "이메일": ["메일", "outlook", "아웃룩", "email", "mail"],
+    "공유드라이브": ["공유폴더", "네트워크드라이브", "파일서버", "nas", "shared"],
+    "계정": ["아이디", "id", "account", "사번"],
+    "잠김": ["잠금", "lock", "locked", "잠겼", "막힘"],
+    "설치": ["설치요청", "install", "다운로드", "프로그램설치"],
+    "vpn": ["원격접속", "재택", "원격근무", "remote"],
+    "그룹웨어": ["groupware", "전자결재", "결재", "지란지교"],
+    "sap": ["에스에이피", "erp"],
+    "teams": ["팀즈", "화상회의", "화상", "회의", "meeting"],
+    "모니터": ["듀얼모니터", "이중화면", "monitor", "화면"],
+    "보안": ["security", "백신", "antivirus", "ahnlab", "v3"]
+  },
+  "entries": [
+    {
+      "id": "pw-reset",
+      "title": "사내 비밀번호 변경 / 초기화",
+      "category": "계정/로그인",
+      "keywords": ["비밀번호", "비번", "패스워드", "초기화", "변경", "잊어버림", "리셋"],
+      "tags": ["계정", "로그인"],
+      "content": "## 비밀번호 변경/초기화 방법\n\n1. 사내 포털(SSO) 로그인 → 우측 상단 **내 정보** 클릭\n2. **비밀번호 변경** 메뉴 선택\n3. 현재 비밀번호 입력 후 새 비밀번호 설정 (영문+숫자+특수문자 9자 이상)\n\n**비밀번호를 완전히 잊어버린 경우**, 셀프 초기화 페이지에서 사번+휴대폰 인증으로 재설정할 수 있습니다.\n그래도 안 되면 IT 헬프데스크로 문의하세요.",
+      "links": [
+        { "label": "비밀번호 셀프 초기화", "url": "https://it-portal.example.hanonsystems.com/account/reset" },
+        { "label": "SSO 포털 바로가기", "url": "https://sso.example.hanonsystems.com" }
+      ]
+    },
+    {
+      "id": "account-locked",
+      "title": "계정 잠김 해제",
+      "category": "계정/로그인",
+      "keywords": ["계정", "잠김", "잠금", "로그인", "막힘", "5회"],
+      "tags": ["계정", "로그인"],
+      "content": "## 계정이 잠겼을 때\n\n비밀번호를 **5회 이상 틀리면** 보안 정책에 따라 계정이 30분간 자동 잠깁니다.\n\n- **30분 대기** 후 다시 시도하거나\n- 즉시 해제가 필요하면 IT 헬프데스크로 사번을 알려주세요.\n\n반복적으로 잠긴다면 저장된 이전 비밀번호(메일/와이파이 자동로그인)가 원인일 수 있으니 함께 확인하세요.",
+      "links": [
+        { "label": "계정 잠김 해제 요청", "url": "https://it-portal.example.hanonsystems.com/account/unlock" }
+      ]
+    },
+    {
+      "id": "vpn-setup",
+      "title": "VPN(원격접속) 설치 및 연결",
+      "category": "네트워크",
+      "keywords": ["vpn", "원격접속", "재택", "원격근무", "remote", "외부접속"],
+      "tags": ["네트워크", "재택근무"],
+      "content": "## VPN 연결 방법\n\n1. IT 포털 → **소프트웨어 다운로드**에서 VPN 클라이언트 설치\n2. 클라이언트 실행 후 서버 주소 `vpn.hanonsystems.com` 입력\n3. 사번/비밀번호 + OTP(모바일 인증앱) 6자리 입력\n4. 연결 상태가 **Connected**가 되면 사내망 접속 완료\n\n연결이 안 되면 OTP 시간 동기화와 인터넷 연결을 먼저 확인하세요.",
+      "links": [
+        { "label": "VPN 클라이언트 다운로드", "url": "https://it-portal.example.hanonsystems.com/software/vpn" },
+        { "label": "VPN 설정 매뉴얼(PDF)", "url": "https://it-portal.example.hanonsystems.com/docs/vpn-guide.pdf" }
+      ]
+    },
+    {
+      "id": "wifi",
+      "title": "사내 와이파이(무선) 연결",
+      "category": "네트워크",
+      "keywords": ["와이파이", "wifi", "무선", "인터넷", "wireless", "연결"],
+      "tags": ["네트워크"],
+      "content": "## 사내 와이파이 연결\n\n- **임직원용 SSID**: `HANON-STAFF` — 사번/비밀번호(SSO 계정)로 인증\n- **게스트용 SSID**: `HANON-GUEST` — 방문객용, 헬프데스크에서 일일 비밀번호 발급\n\n노트북이 계속 끊긴다면 저장된 네트워크를 삭제 후 다시 연결하거나 무선 드라이버를 업데이트하세요.",
+      "links": [
+        { "label": "게스트 와이파이 신청", "url": "https://it-portal.example.hanonsystems.com/network/guest-wifi" }
+      ]
+    },
+    {
+      "id": "printer",
+      "title": "프린터 / 복합기 설치 및 인쇄",
+      "category": "주변기기",
+      "keywords": ["프린터", "인쇄", "출력", "복합기", "printer", "스캔", "토너"],
+      "tags": ["주변기기"],
+      "content": "## 프린터 설치 방법\n\n1. 탐색기 주소창에 `\\\\print.hanonsystems.com` 입력\n2. 가까운 층/구역의 복합기를 더블클릭하여 드라이버 자동 설치\n3. 인쇄 시 **사번 카드 태그** 후 출력물 수령(보안 출력)\n\n토너 교체/용지 부족 등 하드웨어 문제는 헬프데스크로 복합기 번호와 함께 접수하세요.",
+      "links": [
+        { "label": "프린터 위치 안내도", "url": "https://it-portal.example.hanonsystems.com/devices/printer-map" }
+      ]
+    },
+    {
+      "id": "outlook",
+      "title": "이메일(Outlook) 설정",
+      "category": "협업도구",
+      "keywords": ["이메일", "메일", "outlook", "아웃룩", "설정", "서명", "용량"],
+      "tags": ["협업도구", "이메일"],
+      "content": "## Outlook 메일 설정\n\n- 신규 PC는 사번 계정으로 자동 구성됩니다(Exchange).\n- 수동 설정 시 서버: `mail.hanonsystems.com`, 계정: `사번@hanonsystems.com`\n- **메일함 용량 초과** 시 오래된 메일을 보관(Archive)하거나 용량 증설을 신청하세요.\n\n표준 메일 서명은 포털의 서명 생성기에서 자동으로 만들 수 있습니다.",
+      "links": [
+        { "label": "메일 서명 생성기", "url": "https://it-portal.example.hanonsystems.com/mail/signature" },
+        { "label": "메일함 용량 증설 신청", "url": "https://it-portal.example.hanonsystems.com/mail/quota" }
+      ]
+    },
+    {
+      "id": "shared-drive",
+      "title": "공유 드라이브 / 파일서버 접속",
+      "category": "네트워크",
+      "keywords": ["공유드라이브", "공유폴더", "네트워크드라이브", "파일서버", "nas", "권한"],
+      "tags": ["네트워크", "파일"],
+      "content": "## 공유 드라이브 연결\n\n1. 탐색기 → **네트워크 드라이브 연결**\n2. 경로 입력: `\\\\fileserver.hanonsystems.com\\부서명`\n3. 사번 계정으로 인증\n\n폴더가 보이지 않거나 **접근 권한이 없다**고 나오면, 부서 관리자의 승인을 거쳐 권한을 신청해야 합니다.",
+      "links": [
+        { "label": "공유폴더 접근권한 신청", "url": "https://it-portal.example.hanonsystems.com/storage/access" }
+      ]
+    },
+    {
+      "id": "groupware",
+      "title": "그룹웨어 / 전자결재 접속",
+      "category": "협업도구",
+      "keywords": ["그룹웨어", "전자결재", "결재", "groupware", "휴가", "기안"],
+      "tags": ["협업도구"],
+      "content": "## 그룹웨어 사용\n\n- 접속: 사내 포털 → **그룹웨어** 또는 `gw.hanonsystems.com`\n- 전자결재(기안/휴가/품의)는 그룹웨어 내 **결재함**에서 처리\n- 모바일은 그룹웨어 앱 설치 후 사번 로그인\n\n결재선이 잘못 지정되면 부서 결재선 관리자에게 수정 요청하세요.",
+      "links": [
+        { "label": "그룹웨어 바로가기", "url": "https://gw.example.hanonsystems.com" }
+      ]
+    },
+    {
+      "id": "sap",
+      "title": "SAP / ERP 접속 오류",
+      "category": "기간계시스템",
+      "keywords": ["sap", "erp", "접속", "오류", "로그온", "gui"],
+      "tags": ["기간계"],
+      "content": "## SAP 접속 문제\n\n1. SAP Logon 프로그램에서 운영 서버(`PRD`)가 선택되어 있는지 확인\n2. 로그온 오류 시 사번/비밀번호와 **권한(Role)** 부여 여부 확인\n3. 'No authorization' 메시지는 해당 트랜잭션 권한 신청이 필요합니다.\n\nSAP GUI 미설치 PC는 소프트웨어 다운로드에서 설치하세요.",
+      "links": [
+        { "label": "SAP GUI 다운로드", "url": "https://it-portal.example.hanonsystems.com/software/sapgui" },
+        { "label": "SAP 권한 신청", "url": "https://it-portal.example.hanonsystems.com/sap/authorization" }
+      ]
+    },
+    {
+      "id": "teams",
+      "title": "Microsoft Teams 화상회의",
+      "category": "협업도구",
+      "keywords": ["teams", "팀즈", "화상회의", "화상", "회의", "meeting", "공유"],
+      "tags": ["협업도구"],
+      "content": "## Teams 화상회의\n\n- 사번 계정(`사번@hanonsystems.com`)으로 로그인\n- 회의 예약: 일정 → **새 모임** → 참석자 추가\n- 화면 공유: 회의 중 **공유** 버튼 → 창/화면 선택\n\n마이크/카메라가 안 잡히면 Windows 개인정보 설정에서 Teams 권한을 확인하세요.",
+      "links": [
+        { "label": "Teams 다운로드", "url": "https://it-portal.example.hanonsystems.com/software/teams" }
+      ]
+    },
+    {
+      "id": "software-install",
+      "title": "소프트웨어 설치 요청",
+      "category": "소프트웨어",
+      "keywords": ["설치", "프로그램설치", "소프트웨어", "라이선스", "install", "관리자권한"],
+      "tags": ["소프트웨어"],
+      "content": "## 소프트웨어 설치\n\n- **승인 SW**: 포털의 소프트웨어 센터에서 클릭 설치(관리자 권한 불필요)\n- **그 외 SW**: 보안 정책상 임의 설치가 제한됩니다. 설치 요청서를 제출해 승인 후 IT가 원격 설치합니다.\n\n라이선스가 필요한 프로그램은 구매 승인이 함께 진행됩니다.",
+      "links": [
+        { "label": "소프트웨어 센터", "url": "https://it-portal.example.hanonsystems.com/software" },
+        { "label": "설치 요청서 작성", "url": "https://it-portal.example.hanonsystems.com/software/request" }
+      ]
+    },
+    {
+      "id": "dual-monitor",
+      "title": "듀얼 모니터 설정",
+      "category": "주변기기",
+      "keywords": ["모니터", "듀얼모니터", "이중화면", "확장", "monitor", "해상도"],
+      "tags": ["주변기기"],
+      "content": "## 듀얼 모니터 설정\n\n1. 모니터 케이블(HDMI/DP) 연결\n2. 바탕화면 우클릭 → **디스플레이 설정**\n3. '여러 디스플레이' → **디스플레이 확장** 선택\n4. 모니터 배치를 드래그로 실제 위치에 맞게 조정\n\n두 번째 모니터가 인식되지 않으면 케이블 교체와 그래픽 드라이버 업데이트를 시도하세요.",
+      "links": []
+    },
+    {
+      "id": "security-antivirus",
+      "title": "백신 / 보안 프로그램",
+      "category": "보안",
+      "keywords": ["보안", "백신", "antivirus", "v3", "ahnlab", "악성코드", "감염"],
+      "tags": ["보안"],
+      "content": "## 보안 프로그램 안내\n\n- 모든 PC에 사내 표준 백신이 자동 설치/업데이트됩니다.\n- 악성코드 의심 경고가 뜨면 **임의 삭제하지 말고** 즉시 IT 보안팀에 신고하세요.\n- USB 등 외부 저장장치는 정책상 사용이 제한될 수 있습니다.",
+      "links": [
+        { "label": "보안 사고 신고", "url": "https://it-portal.example.hanonsystems.com/security/report" }
+      ]
+    }
+  ]
+}

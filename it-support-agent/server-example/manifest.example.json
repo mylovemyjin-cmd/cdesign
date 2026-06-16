@@ -1,0 +1,22 @@
+{
+  "version": "2026.07.01",
+  "updatedAt": "2026-07-01",
+  "source": "central-server",
+  "synonyms": {
+    "비밀번호": ["비번", "패스워드", "password", "암호"],
+    "와이파이": ["wifi", "무선", "wireless"]
+  },
+  "entries": [
+    {
+      "id": "example-topic",
+      "title": "예시 매뉴얼 항목 제목",
+      "category": "카테고리명",
+      "keywords": ["검색에", "쓰일", "키워드들"],
+      "tags": ["선택", "태그"],
+      "content": "## 소제목\n\n1. 첫 번째 단계\n2. 두 번째 단계\n\n**굵게** 또는 `코드` 표기를 쓸 수 있습니다.",
+      "links": [
+        { "label": "관련 페이지", "url": "https://it-portal.example.hanonsystems.com/page" }
+      ]
+    }
+  ]
+}

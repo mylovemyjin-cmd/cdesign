@@ -1,0 +1,20 @@
+{
+  "productName": "IT 도우미",
+  "knowledgeBase": {
+    "//": "중앙 서버에서 매뉴얼을 받아오는 매니페스트 URL. 사내 배포 시 이 값을 변경하세요.",
+    "manifestUrl": "https://it-portal.example.hanonsystems.com/agent/manifest.json",
+    "syncOnStartup": true,
+    "syncTimeoutMs": 8000
+  },
+  "helpdesk": {
+    "name": "IT 헬프데스크",
+    "phone": "내선 1234",
+    "email": "it-helpdesk@hanonsystems.com",
+    "portalUrl": "https://it-portal.example.hanonsystems.com"
+  },
+  "ui": {
+    "windowWidth": 420,
+    "windowHeight": 560,
+    "hideOnBlur": false
+  }
+}

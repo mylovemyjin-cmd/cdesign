@@ -1,0 +1,285 @@
+:root {
+  --bg: #f4f6f9;
+  --panel: #ffffff;
+  --brand: #0b5fff;
+  --brand-dark: #0843c4;
+  --text: #1c2330;
+  --muted: #6b7280;
+  --bubble-user: #0b5fff;
+  --bubble-bot: #eef1f6;
+  --border: #e3e7ee;
+  --radius: 14px;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Malgun Gothic", "맑은 고딕", -apple-system, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+/* ── 헤더 ─────────────────────────────── */
+.app-header {
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  user-select: none;
+}
+
+.app-header .title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.app-header .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #57e389;
+  box-shadow: 0 0 0 3px rgba(87, 227, 137, 0.25);
+}
+
+.header-actions {
+  -webkit-app-region: no-drag;
+  display: flex;
+  gap: 4px;
+}
+
+.header-actions button {
+  -webkit-app-region: no-drag;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.header-actions button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── 메시지 영역 ──────────────────────── */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg {
+  max-width: 88%;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  line-height: 1.5;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.msg.user {
+  align-self: flex-end;
+  background: var(--bubble-user);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.bot {
+  align-self: flex-start;
+  background: var(--bubble-bot);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+}
+
+.msg .answer-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--brand-dark);
+}
+
+.msg .category-tag {
+  display: inline-block;
+  font-size: 11px;
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-bottom: 6px;
+}
+
+.msg .content h2 {
+  font-size: 14px;
+  margin: 6px 0 4px;
+}
+.msg .content p {
+  margin: 4px 0;
+}
+.msg .content ol,
+.msg .content ul {
+  margin: 4px 0 4px 18px;
+}
+.msg .content li {
+  margin: 2px 0;
+}
+.msg .content code {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}
+.msg .content strong {
+  font-weight: 700;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid var(--brand);
+  color: var(--brand);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.link-btn:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+.alt-results {
+  margin-top: 8px;
+  border-top: 1px dashed var(--border);
+  padding-top: 6px;
+}
+.alt-results .alt-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.alt-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin: 3px 0;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text);
+}
+.alt-btn:hover {
+  border-color: var(--brand);
+}
+
+.escalate {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ── 추천 칩 ──────────────────────────── */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 12px 8px;
+}
+
+.chip {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--text);
+}
+.chip:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ── 입력 영역 ────────────────────────── */
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+}
+
+#input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+#input:focus {
+  border-color: var(--brand);
+}
+
+#send-btn {
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#send-btn:hover {
+  background: var(--brand-dark);
+}
+
+.toast {
+  align-self: center;
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+}

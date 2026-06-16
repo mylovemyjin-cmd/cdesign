@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+    <title>IT 도우미</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="title">
+        <span class="dot"></span>
+        <span id="product-name">IT 도우미</span>
+      </div>
+      <div class="header-actions">
+        <button id="refresh-btn" title="매뉴얼 새로고침" aria-label="매뉴얼 새로고침">⟳</button>
+        <button id="close-btn" title="닫기" aria-label="닫기">×</button>
+      </div>
+    </header>
+
+    <main id="messages" class="messages" aria-live="polite"></main>
+
+    <div id="chips" class="chips"></div>
+
+    <footer class="composer">
+      <input
+        id="input"
+        type="text"
+        placeholder="무엇을 도와드릴까요? (예: 비밀번호 초기화)"
+        autocomplete="off"
+      />
+      <button id="send-btn" aria-label="보내기">보내기</button>
+    </footer>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
