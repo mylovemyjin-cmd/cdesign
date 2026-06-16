@@ -1,0 +1,65 @@
+name: Build IT 도우미 (Windows)
+
+# it-support-agent 변경분이 푸시되면 Windows 설치파일(.exe)을 자동 빌드한다.
+# Actions 탭의 해당 실행 → Artifacts 에서 설치파일을 내려받을 수 있다.
+
+on:
+  push:
+    branches:
+      - claude/it-support-agent-dev-8tkwa4
+      - main
+    paths:
+      - 'it-support-agent/**'
+      - '.github/workflows/build-it-support-agent.yml'
+  workflow_dispatch: {} # Actions 탭에서 수동 실행 가능
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: it-support-agent
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: it-support-agent/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate tray icon
+        run: npm run icon
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build Windows installer
+        run: npm run dist
+        env:
+          # 코드 서명 인증서가 없으므로 자동 탐색 비활성화(서명 없이 빌드)
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Read version
+        id: ver
+        shell: bash
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: it-support-agent-windows-v${{ steps.ver.outputs.version }}
+          path: |
+            it-support-agent/dist/*.exe
+            it-support-agent/dist/latest.yml
+          if-no-files-found: error
+          retention-days: 30
