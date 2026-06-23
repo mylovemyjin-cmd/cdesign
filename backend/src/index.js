@@ -5,6 +5,9 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const { scheduleJobs } = require('./services/scheduler');
 const logger = require('./config/logger');
+const { createOpsAgent } = require('./ops-agent');
+const { authenticate, requireMinRole } = require('./middleware/auth');
+const pool = require('../config/db');
 
 // 라우터
 const authRoutes     = require('./routes/auth');
@@ -39,6 +42,19 @@ app.use('/api/kpis',    kpiRoutes);
 app.use('/api/budgets', budgetRoutes);
 app.use('/api/admin',   adminRoutes);
 
+// ── 운영 에이전트 (선택, OPS_AGENT_ENABLED=true 일 때) ──
+let opsAgent = null;
+if (process.env.OPS_AGENT_ENABLED === 'true') {
+  const opsConfig = require('../config/ops.config');
+  opsAgent = createOpsAgent({
+    config: opsConfig,
+    pool,
+    logger,
+    auth: [authenticate, requireMinRole('HQ')], // 운영 API 는 본부장 전용
+  });
+  app.use('/api/ops', opsAgent.router);
+}
+
 // ── 헬스체크 ──────────────────────────────────────────
 app.get('/health', (req, res) => res.json({ status: 'ok', ts: new Date() }));
 
@@ -53,4 +69,5 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   logger.info(`DT Tracker API running on port ${PORT}`);
   scheduleJobs();  // cron 등록 (Weekly Briefing 등)
+  if (opsAgent) opsAgent.start();  // 운영 에이전트 감시 시작
 });
